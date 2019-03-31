@@ -1,0 +1,37 @@
+package springbootstarter.topic;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class TopicController {
+	
+	@Autowired
+	//singleton design pattern, service class will be injected to this controller
+	private TopicService topicService;
+	
+	@RequestMapping("/topics")
+	//Spring MVC will automatically convert Java Object to JSON format
+	public List<Topic> getAllTopics() {
+		return topicService.getAllTopics();
+	}
+	
+	@RequestMapping("/topics/{id}")
+	//match whatever in the {} to the method parameter
+	public Topic getTopic(@PathVariable String id) {
+		return topicService.getTopic(id);
+	}
+	
+	@RequestMapping(method=RequestMethod.POST, value="/topics")
+	//RequestMapping default method is GET
+	//Spring MVC will automatically convert body to Java Object
+	public void addTopic(@RequestBody Topic topic) {
+		topicService.getTopic(topic);
+	}
+}

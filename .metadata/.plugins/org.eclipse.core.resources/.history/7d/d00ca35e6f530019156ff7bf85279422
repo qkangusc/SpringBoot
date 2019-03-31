@@ -1,0 +1,5 @@
+package springbootstarter.topic;
+
+public class TopicRepository {
+
+}

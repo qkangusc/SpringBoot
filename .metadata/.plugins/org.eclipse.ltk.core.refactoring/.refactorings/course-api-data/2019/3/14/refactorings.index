@@ -1,0 +1,6 @@
+1554008032821	Rename package 'springbootstarter.topic'
+1554009121492	Copy package
+1554009143027	Rename type 'Topic'
+1554009158034	Rename type 'TopicController'
+1554009170050	Rename type 'TopicRepository'
+1554009180148	Rename type 'TopicService'
